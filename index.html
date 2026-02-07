@@ -4,144 +4,109 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Boomerang TI | Soluciones Tecnológicas</title>
-  <meta name="description" content="Boomerang TI - Informática, redes WiFi, cámaras de seguridad, alarmas, equipamiento médico e imagen empresarial. Gran Mendoza." />
+  <meta name="description" content="Boomerang TI - Informática, Redes WiFi, Cámaras de Seguridad, Alarmas, Equipamiento Médico e Imagen Empresarial. Gran Mendoza." />
 
   <style>
     :root{
-      --bg1:#071a2b;
-      --bg2:#0a2c49;
-      --card:#0c3556;
-      --line:rgba(255,255,255,.10);
-      --text:#f2f7ff;
-      --muted:rgba(242,247,255,.75);
+      --bg:#061726;
+      --bg2:#081f33;
+      --card:rgba(255,255,255,.04);
+      --line:rgba(255,255,255,.12);
+
+      --text:#f3f7ff;
+      --muted:rgba(243,247,255,.72);
 
       --orange:#ff7a18;
       --orange2:#ffb04a;
 
-      --blue:#1b9fff;
-      --blue2:#0aa0ff;
+      --blue:#19b7ff;
 
-      --shadow: 0 18px 45px rgba(0,0,0,.35);
-      --radius: 22px;
+      --shadow: 0 20px 50px rgba(0,0,0,.40);
+      --radius: 24px;
     }
 
     *{box-sizing:border-box}
     html,body{margin:0;padding:0}
     body{
       font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color:var(--text);
       background:
-        radial-gradient(900px 600px at 20% 15%, rgba(27,159,255,.25), transparent 55%),
-        radial-gradient(900px 600px at 80% 30%, rgba(255,122,24,.18), transparent 55%),
-        linear-gradient(180deg, var(--bg1), var(--bg2));
-      color: var(--text);
+        radial-gradient(900px 600px at 15% 10%, rgba(25,183,255,.20), transparent 55%),
+        radial-gradient(900px 600px at 85% 25%, rgba(255,122,24,.15), transparent 55%),
+        linear-gradient(180deg, var(--bg), var(--bg2));
       min-height:100vh;
     }
 
-    a{color:inherit;text-decoration:none}
+    a{text-decoration:none;color:inherit}
+
     .wrap{
-      width:min(1100px, 92vw);
+      width:min(1120px, 92vw);
       margin:0 auto;
-      padding:28px 0 60px;
+      padding:26px 0 70px;
     }
 
-    /* TOP BAR */
-    .topbar{
+    /* HEADER */
+    header{
       display:flex;
       justify-content:space-between;
       align-items:center;
-      gap:16px;
-      margin-bottom:18px;
+      gap:18px;
+      padding:18px 18px;
+      border-radius: var(--radius);
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      backdrop-filter: blur(10px);
+      box-shadow: var(--shadow);
     }
+
     .brand{
       display:flex;
-      align-items:center;
       gap:14px;
+      align-items:center;
+      min-width:260px;
     }
+
     .logo{
-      width:56px;height:56px;
-      border-radius:16px;
-      background: rgba(255,255,255,.06);
-      border: 1px solid rgba(255,255,255,.10);
+      width:62px;
+      height:62px;
+      border-radius:18px;
+      background: rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.12);
       display:grid;
       place-items:center;
       overflow:hidden;
-      box-shadow: 0 10px 30px rgba(0,0,0,.25);
+      box-shadow: 0 12px 28px rgba(0,0,0,.25);
+      flex:0 0 auto;
     }
-    .logo img{width:100%;height:100%;object-fit:contain;padding:8px}
+
+    .logo img{
+      width:100%;
+      height:100%;
+      object-fit:contain;
+      padding:10px;
+    }
+
     .brand h1{
+      margin:0;
       font-size:22px;
       line-height:1.1;
-      margin:0;
       letter-spacing:.2px;
     }
-    .brand p{
-      margin:3px 0 0;
-      color:var(--muted);
-      font-weight:700;
-      letter-spacing:.12em;
-      text-transform:uppercase;
+
+    .brand .tagline{
+      margin:5px 0 0;
+      font-weight:900;
+      letter-spacing:.18em;
       font-size:12px;
+      text-transform:uppercase;
+      color: rgba(243,247,255,.85);
     }
 
-    .pill{
+    .actions{
       display:flex;
-      align-items:center;
       gap:10px;
-      padding:10px 14px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.04);
-      backdrop-filter: blur(8px);
-      box-shadow: 0 10px 25px rgba(0,0,0,.20);
-      font-weight:600;
-      font-size:14px;
-      color:var(--text);
-      white-space:nowrap;
-    }
-
-    /* HERO */
-    .hero{
-      border-radius: var(--radius);
-      padding:26px;
-      border: 1px solid rgba(255,255,255,.10);
-      background:
-        radial-gradient(800px 500px at 10% 20%, rgba(27,159,255,.18), transparent 60%),
-        radial-gradient(800px 500px at 90% 30%, rgba(255,122,24,.12), transparent 60%),
-        rgba(255,255,255,.03);
-      box-shadow: var(--shadow);
-      position:relative;
-      overflow:hidden;
-    }
-
-    .hero-grid{
-      display:grid;
-      grid-template-columns: 1.25fr .75fr;
-      gap:22px;
-      align-items:stretch;
-    }
-
-    .hero h2{
-      margin:0;
-      font-size:34px;
-      line-height:1.08;
-      letter-spacing:-.5px;
-    }
-    .hero h2 span{
-      color: var(--blue);
-    }
-    .hero .sub{
-      margin:12px 0 0;
-      color: var(--muted);
-      font-size:16px;
-      line-height:1.45;
-      max-width: 58ch;
-    }
-
-    .cta-row{
-      display:flex;
       flex-wrap:wrap;
-      gap:12px;
-      margin-top:18px;
+      justify-content:flex-end;
     }
 
     .btn{
@@ -151,60 +116,142 @@
       padding:12px 16px;
       border-radius:16px;
       border:1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.05);
-      font-weight:800;
+      background: rgba(255,255,255,.04);
+      font-weight:900;
       letter-spacing:.2px;
       transition:.15s ease;
+      font-size:14px;
     }
+
     .btn:hover{transform: translateY(-1px);}
 
     .btn.primary{
+      border:none;
+      color:#061726;
       background: linear-gradient(90deg, var(--orange), var(--orange2));
-      color:#06121f;
-      border: none;
-      box-shadow: 0 12px 30px rgba(255,122,24,.22);
-    }
-    .btn.secondary{
-      background: linear-gradient(90deg, rgba(27,159,255,.20), rgba(27,159,255,.08));
+      box-shadow: 0 16px 40px rgba(255,122,24,.25);
     }
 
-    .hero-card{
-      border-radius: 20px;
+    .btn.secondary{
+      border:1px solid rgba(25,183,255,.35);
+      background: rgba(25,183,255,.10);
+    }
+
+    /* HERO */
+    .hero{
+      margin-top:18px;
+      border-radius: var(--radius);
+      border:1px solid rgba(255,255,255,.10);
+      background:
+        radial-gradient(900px 500px at 12% 15%, rgba(25,183,255,.16), transparent 60%),
+        radial-gradient(900px 500px at 88% 30%, rgba(255,122,24,.14), transparent 60%),
+        rgba(255,255,255,.03);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      position:relative;
+    }
+
+    .hero-inner{
+      padding:28px;
+      display:grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap:18px;
+      align-items:stretch;
+    }
+
+    .hero h2{
+      margin:0;
+      font-size:38px;
+      line-height:1.05;
+      letter-spacing:-.6px;
+    }
+
+    .hero h2 span{
+      color: var(--blue);
+    }
+
+    .hero p{
+      margin:12px 0 0;
+      color: var(--muted);
+      font-size:16px;
+      line-height:1.5;
+      max-width: 60ch;
+    }
+
+    .chips{
+      margin-top:16px;
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    .chip{
+      padding:9px 12px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+      color: rgba(243,247,255,.88);
+      font-weight:800;
+      font-size:13px;
+    }
+
+    .hero-box{
+      border-radius: 22px;
       border:1px solid rgba(255,255,255,.10);
       background: rgba(0,0,0,.18);
       padding:18px;
-      box-shadow: 0 14px 30px rgba(0,0,0,.25);
+      box-shadow: 0 14px 35px rgba(0,0,0,.25);
     }
-    .hero-card h3{
-      margin:0 0 10px;
-      font-size:16px;
-      letter-spacing:.3px;
-    }
-    .hero-card ul{
+
+    .hero-box h3{
       margin:0;
-      padding:0 0 0 18px;
-      color: var(--muted);
-      line-height:1.55;
-      font-size:14px;
+      font-size:15px;
+      letter-spacing:.15em;
+      text-transform:uppercase;
+      color: rgba(243,247,255,.9);
     }
-    .hero-card li{margin:6px 0}
+
+    .hero-box ul{
+      margin:12px 0 0;
+      padding:0;
+      list-style:none;
+      display:grid;
+      gap:10px;
+      color: var(--muted);
+      font-size:14px;
+      line-height:1.4;
+    }
+
+    .hero-box li{
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+    }
+
+    .dot{
+      width:10px;height:10px;border-radius:4px;
+      background: linear-gradient(180deg, var(--orange), var(--orange2));
+      margin-top:5px;
+      flex:0 0 auto;
+      box-shadow: 0 0 0 5px rgba(255,122,24,.10);
+    }
 
     /* SECTION */
-    .section-title{
-      margin:28px 0 14px;
-      display:flex;
-      align-items:center;
-      gap:10px;
-      font-size:15px;
-      font-weight:900;
-      letter-spacing:.12em;
+    .title{
+      margin:26px 0 12px;
+      font-weight:1000;
+      letter-spacing:.18em;
       text-transform:uppercase;
-      color: rgba(242,247,255,.9);
+      font-size:13px;
+      color: rgba(243,247,255,.85);
+      display:flex;
+      gap:10px;
+      align-items:center;
     }
-    .section-title:before{
-      content:\"\"; width:10px;height:10px;border-radius:3px;
+    .title:before{
+      content:"";
+      width:10px;height:10px;border-radius:3px;
       background: linear-gradient(180deg, var(--orange), var(--orange2));
-      box-shadow: 0 0 0 5px rgba(255,122,24,.12);
     }
 
     .grid{
@@ -215,38 +262,44 @@
 
     .card{
       border-radius: var(--radius);
-      padding:18px;
-      border: 1px solid rgba(255,255,255,.10);
+      border:1px solid rgba(255,255,255,.10);
       background: rgba(255,255,255,.03);
       box-shadow: 0 14px 35px rgba(0,0,0,.18);
+      padding:18px;
     }
+
     .card h4{
       margin:0 0 8px;
       font-size:18px;
-      letter-spacing:-.2px;
+      letter-spacing:-.3px;
       display:flex;
-      gap:10px;
       align-items:center;
+      justify-content:space-between;
+      gap:10px;
     }
-    .tag{
+
+    .badge{
       font-size:11px;
-      font-weight:900;
-      letter-spacing:.12em;
-      padding:6px 10px;
+      font-weight:1000;
+      letter-spacing:.14em;
+      padding:7px 10px;
       border-radius:999px;
-      background: rgba(27,159,255,.12);
-      border:1px solid rgba(27,159,255,.25);
-      color: rgba(242,247,255,.92);
+      background: rgba(25,183,255,.10);
+      border:1px solid rgba(25,183,255,.25);
+      color: rgba(243,247,255,.90);
       text-transform:uppercase;
+      white-space:nowrap;
     }
+
     .card p{
       margin:0;
       color: var(--muted);
-      line-height:1.5;
       font-size:14px;
+      line-height:1.5;
     }
+
     .card ul{
-      margin:10px 0 0;
+      margin:12px 0 0;
       padding:0 0 0 18px;
       color: var(--muted);
       line-height:1.55;
@@ -254,45 +307,54 @@
     }
 
     /* FOOTER */
-    .footer{
-      margin-top:26px;
+    footer{
+      margin-top:22px;
       border-radius: var(--radius);
-      padding:18px;
-      border: 1px solid rgba(255,255,255,.10);
+      border:1px solid rgba(255,255,255,.10);
       background: rgba(255,255,255,.03);
+      box-shadow: 0 14px 35px rgba(0,0,0,.18);
+      padding:18px;
       display:flex;
-      flex-wrap:wrap;
-      gap:14px;
       justify-content:space-between;
       align-items:center;
+      gap:16px;
+      flex-wrap:wrap;
     }
-    .footer .left{
-      display:flex;
-      flex-direction:column;
-      gap:6px;
-    }
-    .footer .left strong{
+
+    footer strong{
+      display:block;
       font-size:15px;
-      letter-spacing:.2px;
     }
-    .footer .left span{
+    footer span{
+      display:block;
+      margin-top:5px;
       color: var(--muted);
       font-size:13px;
     }
 
-    .small{
-      font-size:12px;
-      color: rgba(242,247,255,.65);
-      margin-top:12px;
-      text-align:center;
+    /* WHATSAPP FLOAT */
+    .wa-float{
+      position:fixed;
+      right:18px;
+      bottom:18px;
+      z-index:999;
+      border-radius:999px;
+      padding:14px 16px;
+      font-weight:1000;
+      letter-spacing:.2px;
+      background: linear-gradient(90deg, var(--orange), var(--orange2));
+      color:#061726;
+      box-shadow: 0 18px 45px rgba(255,122,24,.30);
+      border:none;
     }
 
     /* MOBILE */
-    @media (max-width: 880px){
-      .hero-grid{grid-template-columns: 1fr}
-      .grid{grid-template-columns: 1fr}
-      .hero h2{font-size:28px}
-      .pill{display:none}
+    @media (max-width: 900px){
+      .hero-inner{grid-template-columns:1fr}
+      .grid{grid-template-columns:1fr}
+      .hero h2{font-size:30px}
+      header{flex-direction:column; align-items:flex-start}
+      .actions{justify-content:flex-start}
     }
   </style>
 </head>
@@ -300,135 +362,143 @@
 <body>
   <div class="wrap">
 
-    <!-- TOP -->
-    <div class="topbar">
+    <header>
       <div class="brand">
         <div class="logo">
-          <img src="logo.png" alt="Boomerang TI" />
+          <img src="logo.png" alt="Boomerang TI"
+               onerror="this.style.display='none'" />
         </div>
         <div>
           <h1>Boomerang TI</h1>
-          <p>SOLUCIONES TECNOLÓGICAS</p>
+          <div class="tagline">SOLUCIONES TECNOLÓGICAS</div>
         </div>
       </div>
 
-      <div class="pill">📍 Gran Mendoza y alrededores</div>
-    </div>
+      <div class="actions">
+        <a class="btn secondary" href="tel:+5492616998820">📞 Llamar</a>
+        <a class="btn primary" target="_blank" rel="noopener"
+           href="https://wa.me/5492616998820?text=Hola%20Boomerang%20TI!%20Quiero%20hacer%20una%20consulta.">
+          💬 WhatsApp 2616998820
+        </a>
+      </div>
+    </header>
 
-    <!-- HERO -->
     <section class="hero">
-      <div class="hero-grid">
+      <div class="hero-inner">
         <div>
           <h2>
-            Informática, Redes, Cámaras y
-            <span>Soporte Técnico</span>
-            profesional
+            Servicio técnico profesional para
+            <span>Empresas</span>, <span>Comercios</span> y <span>Hogares</span>
           </h2>
 
-          <p class="sub">
-            Soluciones rápidas y confiables para <b>hogares</b>, <b>comercios</b> y <b>empresas</b>.
-            También brindamos servicio técnico especializado en <b>equipamiento médico</b>.
+          <p>
+            Informática, redes WiFi, cámaras de seguridad, alarmas y soporte técnico especializado.
+            Atención en <b>Gran Mendoza</b> y alrededores.
           </p>
 
-          <div class="cta-row">
-            <a class="btn primary" target="_blank"
-              href="https://wa.me/5492616998820?text=Hola%20Boomerang%20TI!%20Quiero%20hacer%20una%20consulta%20por%20un%20servicio.">
-              💬 WhatsApp 2616998820
+          <div class="chips">
+            <div class="chip">✔ PC y Notebooks</div>
+            <div class="chip">✔ WiFi y Redes</div>
+            <div class="chip">✔ Cámaras y Alarmas</div>
+            <div class="chip">✔ Equipamiento Médico</div>
+            <div class="chip">✔ Web y Correos Corporativos</div>
+          </div>
+
+          <div style="margin-top:18px; display:flex; gap:12px; flex-wrap:wrap;">
+            <a class="btn primary" target="_blank" rel="noopener"
+               href="https://wa.me/5492616998820?text=Hola%20Boomerang%20TI!%20Quiero%20pedir%20presupuesto%20por%20un%20servicio.">
+              🚀 Pedir presupuesto
             </a>
 
-            <a class="btn secondary" href="#servicios">
-              ⚡ Ver servicios
+            <a class="btn" target="_blank" rel="noopener"
+               href="https://wa.me/5492616998820?text=Hola%20Boomerang%20TI!%20Necesito%20soporte%20urgente.">
+              ⚡ Soporte urgente
             </a>
           </div>
         </div>
 
-        <div class="hero-card">
-          <h3>⭐ Lo que nos diferencia</h3>
+        <div class="hero-box">
+          <h3>Por qué Boomerang TI</h3>
           <ul>
-            <li>Atención rápida y personalizada</li>
-            <li>Diagnóstico claro (sin vueltas)</li>
-            <li>Trabajo prolijo y garantizado</li>
-            <li>Asesoramiento para comprar mejor</li>
-            <li>Soporte para particulares y empresas</li>
+            <li><span class="dot"></span> Diagnóstico claro y sin vueltas</li>
+            <li><span class="dot"></span> Trabajos prolijos y garantizados</li>
+            <li><span class="dot"></span> Atención rápida y personalizada</li>
+            <li><span class="dot"></span> Asesoramiento para empresas y hogares</li>
+            <li><span class="dot"></span> Soporte en Gran Mendoza</li>
           </ul>
         </div>
       </div>
     </section>
 
-    <!-- SERVICES -->
-    <div class="section-title" id="servicios">Servicios</div>
+    <div class="title">Servicios</div>
 
-    <div class="grid">
+    <section class="grid">
       <div class="card">
-        <h4>💻 Informática y Tecnologías <span class="tag">PC / WiFi</span></h4>
-        <p>Soporte técnico integral para computadoras, notebooks, redes y conectividad.</p>
+        <h4>💻 Informática y Tecnologías <span class="badge">PC / NOTEBOOK</span></h4>
+        <p>Soporte técnico integral para rendimiento, mantenimiento y reparación.</p>
         <ul>
           <li>Reparación de PC y notebooks</li>
-          <li>Instalación de Windows y programas</li>
-          <li>Optimización, limpieza y mantenimiento</li>
-          <li>Redes WiFi (hogar y empresas)</li>
-          <li>Backups, recuperación de datos</li>
+          <li>Limpieza, optimización y mantenimiento</li>
+          <li>Instalación de Windows, drivers y software</li>
+          <li>Backup, migración y recuperación de datos</li>
         </ul>
       </div>
 
       <div class="card">
-        <h4>🏥 Equipamiento Médico <span class="tag">Servicio Técnico</span></h4>
-        <p>Soporte técnico especializado para clínicas, consultorios y laboratorios.</p>
+        <h4>🏥 Equipamiento Médico <span class="badge">CLÍNICAS</span></h4>
+        <p>Servicio técnico especializado orientado a centros de salud y consultorios.</p>
         <ul>
-          <li>Diagnóstico técnico y mantenimiento preventivo</li>
-          <li>Reparación y puesta a punto</li>
-          <li>Asistencia para fallas eléctricas / electrónicas</li>
-          <li>Asesoramiento para continuidad operativa</li>
-          <li>Soporte a clínicas y profesionales</li>
+          <li>Mantenimiento preventivo y correctivo</li>
+          <li>Diagnóstico y reparación técnica</li>
+          <li>Asistencia profesional y documentación</li>
+          <li>Soporte para continuidad operativa</li>
         </ul>
       </div>
 
       <div class="card">
-        <h4>📷 Cámaras y Alarmas <span class="tag">Seguridad</span></h4>
-        <p>Instalación y configuración de sistemas de seguridad para hogares y comercios.</p>
+        <h4>📷 Cámaras y Alarmas <span class="badge">SEGURIDAD</span></h4>
+        <p>Instalación y configuración profesional para hogares y comercios.</p>
         <ul>
-          <li>Cámaras de seguridad (DVR / NVR / IP)</li>
+          <li>Instalación de cámaras (DVR / NVR / IP)</li>
           <li>Acceso remoto desde el celular</li>
-          <li>Instalación prolija y optimizada</li>
-          <li>Alarmas y sensores (según necesidad)</li>
+          <li>Mantenimiento, mejoras y reubicación</li>
+          <li>Alarmas, sensores y soluciones a medida</li>
         </ul>
       </div>
 
       <div class="card">
-        <h4>🌐 Imagen Empresarial <span class="tag">Web + Email</span></h4>
-        <p>Mejoramos tu presencia profesional para que tu negocio venda más y genere confianza.</p>
+        <h4>🌐 Imagen Empresarial <span class="badge">WEB + EMAIL</span></h4>
+        <p>Mejoramos tu presencia para que tu negocio transmita confianza y seriedad.</p>
         <ul>
-          <li>Creación de páginas web simples</li>
-          <li>Correo corporativo (tuempresa.com)</li>
-          <li>Firma profesional para email</li>
+          <li>Creación de página web simple</li>
+          <li>Correos corporativos con tu dominio</li>
           <li>Flyers, QR, diseño para redes</li>
+          <li>Asesoramiento para empresas y profesionales</li>
         </ul>
       </div>
-    </div>
+    </section>
 
-    <!-- FOOTER -->
-    <div class="section-title">Contacto</div>
+    <div class="title">Contacto</div>
 
-    <footer class="footer">
-      <div class="left">
+    <footer>
+      <div>
         <strong>Boomerang TI — Soluciones Tecnológicas</strong>
         <span>📍 Gran Mendoza y alrededores</span>
         <span>📲 WhatsApp: <b>2616998820</b></span>
       </div>
 
-      <a class="btn primary" target="_blank"
-        href="https://wa.me/5492616998820?text=Hola%20Boomerang%20TI!%20Quiero%20cotizar%20un%20servicio.">
-        🚀 Pedir presupuesto
+      <a class="btn primary" target="_blank" rel="noopener"
+         href="https://wa.me/5492616998820?text=Hola%20Boomerang%20TI!%20Quiero%20coordinar%20una%20visita%20t%C3%A9cnica.">
+        📅 Coordinar visita
       </a>
     </footer>
 
-    <div class="small">
-      © <span id="year"></span> Boomerang TI — Todos los derechos reservados.
-    </div>
   </div>
 
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
+  <!-- WhatsApp flotante -->
+  <a class="wa-float" target="_blank" rel="noopener"
+     href="https://wa.me/5492616998820?text=Hola%20Boomerang%20TI!%20Quiero%20hacer%20una%20consulta.">
+    💬 WhatsApp
+  </a>
 </body>
 </html>
