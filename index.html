@@ -1,602 +1,579 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Boomerang TI - Soluciones Tecnológicas</title>
 
-  <title>Boomerang TI | Soluciones Tecnológicas</title>
-  <meta name="description" content="Boomerang TI - Servicio técnico en Gran Mendoza. PC, notebooks, WiFi, redes, cámaras de seguridad, alarmas, equipamiento médico e imagen empresarial." />
+  <!-- Tipografía similar a la del flyer (estilo pro, moderna) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
 
   <style>
     :root{
-      --bg1:#070a12;
-      --bg2:#0b1c2f;
-      --card:#0d1c2e;
-      --line:rgba(255,255,255,.12);
-      --text:#f4f7ff;
-      --muted:rgba(244,247,255,.75);
+      --bg:#070A12;
+      --bg2:#0B1220;
+      --card:#0E172A;
+      --stroke:rgba(255,255,255,.10);
 
-      --orange:#ff7a18;
-      --orange2:#ffb04a;
-      --blue:#1bb7ff;
-      --blue2:#0a67ff;
+      --txt:#EAF2FF;
+      --muted:rgba(234,242,255,.75);
 
-      --shadow: 0 18px 55px rgba(0,0,0,.45);
+      --orange:#FF7A18;
+      --orange2:#FFB35A;
+      --blue:#1B5CFF;
+
+      --shadow: 0 22px 60px rgba(0,0,0,.55);
       --radius: 22px;
     }
 
-    *{box-sizing:border-box}
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
     body{
       margin:0;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      color:var(--text);
-      background: radial-gradient(1200px 800px at 20% 10%, rgba(27,183,255,.16), transparent 60%),
-                  radial-gradient(900px 700px at 80% 20%, rgba(255,122,24,.20), transparent 55%),
-                  linear-gradient(180deg, var(--bg1), var(--bg2));
+      font-family:"Montserrat", system-ui, -apple-system, Segoe UI, Roboto, Arial;
+      color:var(--txt);
+      background:
+        radial-gradient(1200px 600px at 20% 10%, rgba(255,122,24,.25), transparent 60%),
+        radial-gradient(1000px 500px at 80% 15%, rgba(27,92,255,.18), transparent 55%),
+        radial-gradient(900px 600px at 50% 80%, rgba(255,179,90,.10), transparent 60%),
+        linear-gradient(180deg, #05060B 0%, #070A12 35%, #060812 100%);
       overflow-x:hidden;
     }
 
-    /* Fondo estilo flyer */
-    .cosmos{
+    /* Fondo tipo "space tech" con puntitos */
+    body:before{
+      content:"";
       position:fixed;
       inset:0;
-      z-index:-3;
-      background:
-        radial-gradient(circle at 30% 20%, rgba(255,122,24,.18), transparent 45%),
-        radial-gradient(circle at 70% 25%, rgba(27,183,255,.14), transparent 48%),
-        radial-gradient(circle at 40% 80%, rgba(255,176,74,.12), transparent 50%),
-        linear-gradient(180deg, #04060b, #071428 55%, #05070d);
-    }
-    .stars{
-      position:fixed;
-      inset:0;
-      z-index:-2;
-      opacity:.45;
       background-image:
-        radial-gradient(#ffffff 1px, transparent 1px),
-        radial-gradient(#ffffff 1px, transparent 1px);
-      background-size: 90px 90px, 140px 140px;
-      background-position: 0 0, 30px 40px;
+        radial-gradient(circle at 10% 20%, rgba(255,255,255,.18) 0 1px, transparent 2px),
+        radial-gradient(circle at 70% 30%, rgba(255,255,255,.12) 0 1px, transparent 2px),
+        radial-gradient(circle at 35% 80%, rgba(255,255,255,.10) 0 1px, transparent 2px),
+        radial-gradient(circle at 90% 75%, rgba(255,255,255,.08) 0 1px, transparent 2px);
+      background-size: 260px 260px;
+      opacity:.25;
+      pointer-events:none;
       filter: blur(.2px);
     }
-    .streaks{
-      position:fixed;
-      inset:-40px;
-      z-index:-1;
-      opacity:.75;
-      background:
-        radial-gradient(900px 260px at 15% 35%, rgba(255,122,24,.20), transparent 60%),
-        radial-gradient(800px 220px at 70% 40%, rgba(27,183,255,.12), transparent 65%),
-        linear-gradient(120deg, transparent 0%,
-          rgba(255,122,24,.08) 35%,
-          rgba(255,176,74,.06) 50%,
-          rgba(27,183,255,.05) 70%,
-          transparent 100%);
-      transform: rotate(-6deg);
-    }
 
-    a{color:inherit}
+    a{ color:inherit; text-decoration:none; }
+
     .wrap{
-      width:min(1120px, 92vw);
+      width:min(1200px, 92vw);
       margin:0 auto;
-      padding: 26px 0 60px;
+      padding:26px 0 50px;
+      position:relative;
+      z-index:2;
     }
 
     /* Header */
     header{
-      border:1px solid var(--line);
-      background: rgba(7,10,18,.55);
-      backdrop-filter: blur(10px);
-      border-radius: var(--radius);
-      padding: 20px 18px;
-      box-shadow: var(--shadow);
-      overflow:hidden;
-      position:relative;
-    }
-    header::before{
-      content:"";
-      position:absolute;
-      inset:-2px;
-      background:
-        linear-gradient(90deg,
-          rgba(255,122,24,.22),
-          rgba(27,183,255,.18),
-          rgba(255,176,74,.16));
-      filter: blur(18px);
-      opacity:.55;
-      z-index:0;
-    }
-    header > *{position:relative; z-index:1}
-
-    .top{
       display:flex;
-      gap:16px;
       align-items:center;
       justify-content:space-between;
-      flex-wrap:wrap;
+      gap:18px;
+      padding:18px 20px;
+      border-radius:var(--radius);
+      background: linear-gradient(180deg, rgba(14,23,42,.78), rgba(9,12,22,.72));
+      border:1px solid var(--stroke);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
     }
+
     .brand{
       display:flex;
       align-items:center;
       gap:14px;
-      min-width: 280px;
-    }
-    .brand img{
-      width:58px;
-      height:58px;
-      border-radius: 16px;
-      object-fit: cover;
-      box-shadow: 0 10px 25px rgba(0,0,0,.35);
-      border:1px solid rgba(255,255,255,.12);
-      background: rgba(0,0,0,.2);
-    }
-    .brand h1{
-      margin:0;
-      font-size: 30px;
-      letter-spacing: .2px;
-      line-height: 1.05;
-      font-weight: 900;
-      text-shadow: 0 10px 30px rgba(0,0,0,.55);
-    }
-    .brand h1 .ti{
-      background: linear-gradient(90deg, var(--orange), var(--orange2));
-      -webkit-background-clip:text;
-      background-clip:text;
-      color:transparent;
-      font-weight: 900;
-    }
-    .tagline{
-      margin:4px 0 0;
-      font-weight: 800;
-      letter-spacing: .4px;
-      color: rgba(244,247,255,.92);
-    }
-    .tagline span{
-      color: var(--orange2);
+      min-width: 260px;
     }
 
-    .ctaRow{
-      display:flex;
-      gap:10px;
-      align-items:center;
-      flex-wrap:wrap;
-      justify-content:flex-end;
-    }
-
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      padding: 12px 16px;
-      border-radius: 16px;
-      border: 1px solid rgba(255,255,255,.14);
-      text-decoration:none;
-      font-weight: 800;
-      letter-spacing:.2px;
-      box-shadow: 0 14px 40px rgba(0,0,0,.35);
-      transition: transform .15s ease, filter .15s ease;
-      user-select:none;
-      white-space:nowrap;
-    }
-    .btn:hover{transform: translateY(-2px); filter: brightness(1.06)}
-    .btn:active{transform: translateY(0px); filter: brightness(.98)}
-
-    .btn.wa{
-      background: linear-gradient(90deg, #1fbf64, #0aa84d);
-    }
-    .btn.call{
-      background: linear-gradient(90deg, rgba(27,183,255,.25), rgba(10,103,255,.22));
-    }
-    .btn.mail{
-      background: linear-gradient(90deg, rgba(255,122,24,.18), rgba(255,176,74,.12));
-    }
-
-    /* Hero */
-    .hero{
-      margin-top: 18px;
+    .logo{
+      width:54px;
+      height:54px;
+      border-radius:16px;
       display:grid;
-      grid-template-columns: 1.15fr .85fr;
-      gap: 18px;
-      align-items:stretch;
-    }
-
-    .heroCard{
-      border-radius: var(--radius);
-      border:1px solid var(--line);
-      background: rgba(5,10,18,.55);
-      backdrop-filter: blur(10px);
-      box-shadow: var(--shadow);
-      padding: 22px 20px;
+      place-items:center;
+      background:
+        radial-gradient(circle at 30% 30%, rgba(255,179,90,.9), rgba(255,122,24,.9)),
+        linear-gradient(135deg, rgba(27,92,255,.55), rgba(0,0,0,.2));
+      box-shadow: 0 18px 40px rgba(255,122,24,.18);
+      border:1px solid rgba(255,255,255,.10);
       overflow:hidden;
       position:relative;
     }
-    .heroCard::after{
+
+    /* mini "boomerang" abstracto */
+    .logo:before{
       content:"";
       position:absolute;
-      inset:-1px;
-      background: radial-gradient(650px 280px at 10% 10%, rgba(255,122,24,.20), transparent 55%),
-                  radial-gradient(650px 280px at 90% 25%, rgba(27,183,255,.14), transparent 55%);
-      opacity:.85;
-      z-index:0;
+      width:34px;
+      height:34px;
+      border-radius: 12px 30px 12px 30px;
+      transform: rotate(22deg);
+      background: linear-gradient(135deg, rgba(255,255,255,.85), rgba(255,255,255,.10));
+      opacity:.25;
     }
-    .heroCard > *{position:relative; z-index:1}
 
-    .heroTitle{
+    .brand h1{
       margin:0;
-      font-size: clamp(28px, 3.1vw, 44px);
-      line-height: 1.06;
-      font-weight: 950;
-      text-shadow: 0 12px 35px rgba(0,0,0,.55);
+      font-size:22px;
+      line-height:1;
+      letter-spacing:.2px;
+      font-weight:800;
+      text-transform: none;
     }
-    .heroTitle .accent{
-      background: linear-gradient(90deg, var(--orange), var(--orange2));
-      -webkit-background-clip:text;
-      background-clip:text;
-      color:transparent;
+
+    .brand h1 span{
+      color:var(--orange);
+      text-shadow: 0 10px 40px rgba(255,122,24,.25);
     }
-    .heroText{
-      margin: 12px 0 0;
-      color: var(--muted);
-      font-size: 16px;
-      line-height: 1.55;
-      max-width: 70ch;
+
+    .tag{
+      margin-top:4px;
+      font-size:12px;
+      letter-spacing:.6px;
+      text-transform:uppercase;
+      color:rgba(234,242,255,.72);
+      font-weight:600;
+    }
+
+    .ctaTop{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+      align-items:center;
     }
 
     .pill{
+      padding:10px 14px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.03);
+      color:rgba(234,242,255,.85);
+      font-size:13px;
+      font-weight:600;
+      display:flex;
+      align-items:center;
+      gap:10px;
+      transition:.18s ease;
+    }
+
+    .pill:hover{
+      transform: translateY(-1px);
+      border-color: rgba(255,122,24,.35);
+      box-shadow: 0 18px 40px rgba(0,0,0,.35);
+    }
+
+    .btn{
+      padding:12px 16px;
+      border-radius:999px;
+      border:1px solid rgba(255,122,24,.40);
+      background: linear-gradient(180deg, rgba(255,122,24,.95), rgba(255,122,24,.65));
+      color:#1A0E06;
+      font-weight:900;
+      letter-spacing:.2px;
+      font-size:13px;
+      transition:.18s ease;
+      box-shadow: 0 22px 60px rgba(255,122,24,.16);
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+
+    .btn:hover{
+      transform: translateY(-1px);
+      filter: brightness(1.05);
+    }
+
+    /* HERO */
+    .hero{
+      margin-top:18px;
+      border-radius:var(--radius);
+      overflow:hidden;
+      border:1px solid var(--stroke);
+      box-shadow: var(--shadow);
+      background:
+        linear-gradient(180deg, rgba(0,0,0,.25), rgba(0,0,0,.75)),
+        radial-gradient(1000px 500px at 10% 20%, rgba(255,122,24,.25), transparent 55%),
+        radial-gradient(900px 500px at 80% 30%, rgba(27,92,255,.20), transparent 55%),
+        #060813;
+      position:relative;
+    }
+
+    .heroGrid{
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap:0;
+      min-height: 440px;
+    }
+
+    .heroText{
+      padding:34px 34px 30px;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      gap:14px;
+      position:relative;
+      z-index:2;
+    }
+
+    .kicker{
       display:inline-flex;
       gap:10px;
       align-items:center;
-      padding: 9px 12px;
-      border-radius: 999px;
-      border:1px solid rgba(255,255,255,.14);
-      background: rgba(0,0,0,.25);
-      margin-top: 14px;
-      font-weight: 800;
-      letter-spacing: .2px;
-    }
-    .pill b{color: var(--orange2)}
-    .pill small{opacity:.85; font-weight:700}
-
-    /* Columna derecha */
-    .sideCard{
-      display:flex;
-      flex-direction:column;
-      gap: 12px;
-      height:100%;
+      padding:8px 12px;
+      border-radius:999px;
+      background: rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.10);
+      width: fit-content;
+      color:rgba(234,242,255,.85);
+      font-weight:700;
+      font-size:12px;
+      letter-spacing:.6px;
+      text-transform:uppercase;
     }
 
-    .qrBox{
-      border-radius: var(--radius);
-      border:1px solid var(--line);
-      background: rgba(6,10,18,.55);
-      backdrop-filter: blur(10px);
-      box-shadow: var(--shadow);
-      padding: 18px 18px 16px;
+    .kdot{
+      width:10px;
+      height:10px;
+      border-radius:999px;
+      background: radial-gradient(circle at 30% 30%, var(--orange2), var(--orange));
+      box-shadow: 0 0 0 6px rgba(255,122,24,.14);
     }
-    .qrTop{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap: 12px;
-    }
-    .qrTop h3{
+
+    .heroText h2{
       margin:0;
-      font-size: 16px;
-      font-weight: 900;
-      letter-spacing:.2px;
-    }
-    .qrTop p{
-      margin:6px 0 0;
-      color: var(--muted);
-      font-size: 13px;
-      line-height: 1.35;
-    }
-    .qr{
-      margin-top: 14px;
-      width:100%;
-      border-radius: 18px;
-      overflow:hidden;
-      border: 1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.92);
-      padding: 12px;
-    }
-    .qr img{
-      width:100%;
-      display:block;
+      font-size:46px;
+      line-height:1.02;
+      font-weight:900;
+      letter-spacing:-.5px;
+      text-shadow: 0 30px 70px rgba(0,0,0,.55);
     }
 
-    /* Secciones */
-    section{
-      margin-top: 18px;
+    .heroText h2 .accent{
+      color:var(--orange);
+      text-shadow: 0 25px 60px rgba(255,122,24,.22);
     }
-    .grid{
+
+    .heroText p{
+      margin:0;
+      font-size:16px;
+      line-height:1.6;
+      color:rgba(234,242,255,.78);
+      max-width: 560px;
+    }
+
+    .heroBadges{
+      margin-top:10px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+    }
+
+    .badge{
+      padding:10px 12px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.18);
+      font-size:13px;
+      font-weight:700;
+      color:rgba(234,242,255,.88);
+      display:flex;
+      gap:10px;
+      align-items:center;
+    }
+
+    .spark{
+      width:10px;
+      height:10px;
+      border-radius:999px;
+      background: radial-gradient(circle at 30% 30%, rgba(27,92,255,.95), rgba(27,92,255,.25));
+      box-shadow: 0 0 0 6px rgba(27,92,255,.12);
+    }
+
+    .heroImg{
+      position:relative;
+      min-height: 440px;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,.0), rgba(0,0,0,.80)),
+        url("hero-tech.jpg");
+      background-size: cover;
+      background-position: center;
+      filter: saturate(1.05) contrast(1.05);
+    }
+
+    /* Fallback si no suben imagen */
+    .heroImg:after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(700px 380px at 20% 20%, rgba(255,122,24,.22), transparent 60%),
+        radial-gradient(700px 380px at 80% 30%, rgba(27,92,255,.18), transparent 60%);
+      pointer-events:none;
+    }
+
+    /* Sección servicios */
+    .section{
+      margin-top:18px;
       display:grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 16px;
+      grid-template-columns: 1fr 1fr;
+      gap:18px;
     }
+
     .card{
-      border-radius: var(--radius);
-      border:1px solid var(--line);
-      background: rgba(7,10,18,.55);
-      backdrop-filter: blur(10px);
+      border-radius:var(--radius);
+      border:1px solid var(--stroke);
+      background: linear-gradient(180deg, rgba(14,23,42,.75), rgba(8,10,18,.75));
       box-shadow: var(--shadow);
-      padding: 18px 18px 16px;
       overflow:hidden;
       position:relative;
     }
-    .card::before{
-      content:"";
-      position:absolute;
-      inset:-2px;
-      background:
-        radial-gradient(450px 180px at 15% 10%, rgba(255,122,24,.18), transparent 60%),
-        radial-gradient(450px 180px at 90% 25%, rgba(27,183,255,.12), transparent 62%);
-      opacity:.9;
-      z-index:0;
+
+    .cardPad{
+      padding:22px 22px 20px;
     }
-    .card > *{position:relative; z-index:1}
 
     .card h3{
-      margin:0;
-      font-size: 18px;
-      font-weight: 950;
+      margin:0 0 12px;
+      font-size:18px;
+      font-weight:900;
       letter-spacing:.2px;
-      display:flex;
-      align-items:center;
-      gap:10px;
     }
-    .icon{
-      width:40px;
-      height:40px;
-      border-radius: 14px;
+
+    .list{
+      display:grid;
+      gap:10px;
+      margin-top:12px;
+    }
+
+    .item{
+      display:flex;
+      gap:12px;
+      align-items:flex-start;
+      padding:12px 12px;
+      border-radius:16px;
+      border:1px solid rgba(255,255,255,.08);
+      background: rgba(255,255,255,.03);
+    }
+
+    .ico{
+      width:38px;
+      height:38px;
+      border-radius:14px;
       display:grid;
       place-items:center;
-      border:1px solid rgba(255,255,255,.14);
-      background: rgba(0,0,0,.25);
-      font-size: 20px;
+      flex:0 0 auto;
+      background:
+        radial-gradient(circle at 30% 30%, rgba(255,179,90,.8), rgba(255,122,24,.6));
+      border:1px solid rgba(255,255,255,.10);
+      box-shadow: 0 18px 40px rgba(255,122,24,.10);
+      font-size:18px;
     }
 
-    ul{
-      margin: 12px 0 0;
-      padding:0;
-      list-style:none;
-      display:grid;
-      gap: 10px;
-      color: rgba(244,247,255,.92);
-    }
-    li{
-      display:flex;
-      gap:10px;
-      align-items:flex-start;
-      line-height:1.3;
-      font-weight: 650;
-    }
-    li::before{
-      content:"✓";
-      color: var(--orange2);
-      font-weight: 950;
-      margin-top: 1px;
+    .item b{
+      display:block;
+      font-size:14px;
+      font-weight:900;
+      margin-bottom:2px;
     }
 
-    /* Footer */
+    .item span{
+      display:block;
+      font-size:13px;
+      color:rgba(234,242,255,.75);
+      line-height:1.4;
+    }
+
+    .imgCard{
+      min-height: 340px;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,.15), rgba(0,0,0,.80)),
+        url("services-tech.jpg");
+      background-size: cover;
+      background-position:center;
+      filter: saturate(1.05) contrast(1.05);
+    }
+
+    .imgCard:after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(700px 380px at 20% 20%, rgba(255,122,24,.18), transparent 60%),
+        radial-gradient(700px 380px at 80% 30%, rgba(27,92,255,.16), transparent 60%);
+      pointer-events:none;
+    }
+
+    /* Footer contacto */
     footer{
-      margin-top: 18px;
-      border-radius: var(--radius);
-      border:1px solid var(--line);
-      background: rgba(5,10,18,.55);
-      backdrop-filter: blur(10px);
+      margin-top:18px;
+      padding:18px 20px;
+      border-radius:var(--radius);
+      border:1px solid var(--stroke);
+      background: linear-gradient(180deg, rgba(14,23,42,.75), rgba(8,10,18,.75));
       box-shadow: var(--shadow);
-      padding: 18px;
-      text-align:center;
-    }
-    footer h2{
-      margin:0;
-      font-size: 22px;
-      font-weight: 950;
-    }
-    footer h2 span{
-      background: linear-gradient(90deg, var(--orange), var(--orange2));
-      -webkit-background-clip:text;
-      background-clip:text;
-      color:transparent;
-    }
-    footer p{
-      margin: 10px auto 0;
-      color: var(--muted);
-      max-width: 85ch;
-      line-height: 1.5;
-      font-weight: 650;
+      display:flex;
+      justify-content:space-between;
+      gap:18px;
+      flex-wrap:wrap;
+      align-items:center;
     }
 
-    /* WhatsApp flotante */
-    .waFloat{
-      position: fixed;
-      right: 18px;
-      bottom: 18px;
-      z-index: 999;
-      display:inline-flex;
+    .contact{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
       align-items:center;
-      gap:10px;
-      padding: 14px 16px;
-      border-radius: 999px;
-      background: linear-gradient(90deg, #1fbf64, #0aa84d);
-      border: 1px solid rgba(255,255,255,.16);
-      text-decoration:none;
-      font-weight: 950;
-      box-shadow: 0 18px 55px rgba(0,0,0,.55);
-      transition: transform .15s ease, filter .15s ease;
     }
-    .waFloat:hover{transform: translateY(-2px); filter: brightness(1.06)}
-    .waFloat:active{transform: translateY(0px); filter: brightness(.98)}
+
+    .contact .pill{
+      background: rgba(0,0,0,.18);
+    }
+
+    .mini{
+      color:rgba(234,242,255,.70);
+      font-size:12px;
+      font-weight:600;
+      letter-spacing:.2px;
+    }
 
     /* Responsive */
     @media (max-width: 980px){
-      .hero{grid-template-columns: 1fr}
-      .grid{grid-template-columns: 1fr}
-      .ctaRow{justify-content:flex-start}
+      .heroGrid{
+        grid-template-columns: 1fr;
+      }
+      .heroImg{
+        min-height: 260px;
+      }
+      .heroText h2{
+        font-size:36px;
+      }
+      .section{
+        grid-template-columns: 1fr;
+      }
+      header{
+        flex-direction:column;
+        align-items:flex-start;
+      }
+      .ctaTop{
+        justify-content:flex-start;
+      }
     }
   </style>
 </head>
 
 <body>
-  <div class="cosmos"></div>
-  <div class="stars"></div>
-  <div class="streaks"></div>
-
   <div class="wrap">
 
+    <!-- HEADER -->
     <header>
-      <div class="top">
-        <div class="brand">
-          <!-- IMPORTANTE: en tu repo el logo se llama logo.png -->
-          <img src="logo.png" alt="Boomerang TI" />
-          <div>
-            <h1>Boomerang <span class="ti">TI</span></h1>
-            <div class="tagline">SOLUCIONES <span>TECNOLÓGICAS</span></div>
-          </div>
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <div>
+          <h1>Boomerang <span>TI</span></h1>
+          <div class="tag">SOLUCIONES TECNOLÓGICAS</div>
         </div>
+      </div>
 
-        <div class="ctaRow">
-          <a class="btn wa" href="https://wa.me/5492616998820?text=Hola%20Boomerang%20TI%2C%20quiero%20hacer%20una%20consulta." target="_blank" rel="noopener">
-            💬 WhatsApp
-          </a>
-          <a class="btn call" href="tel:+542616998820">
-            📞 Llamar
-          </a>
-          <a class="btn mail" href="mailto:boomerang.spa@gmail.com">
-            ✉️ Email
-          </a>
-        </div>
+      <div class="ctaTop">
+        <a class="pill" href="tel:+542616998820">📞 +54 9 261 699 8820</a>
+        <a class="pill" href="mailto:boomerang.spa@gmail.com">✉️ boomerang.spa@gmail.com</a>
+        <a class="btn" href="https://wa.me/542616998820" target="_blank" rel="noopener">
+          💬 WhatsApp Directo
+        </a>
       </div>
     </header>
 
-    <div class="hero">
-      <div class="heroCard">
-        <h2 class="heroTitle">
-          Servicio técnico profesional para
-          <span class="accent">Empresas, Comercios y Hogares</span>
-        </h2>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="heroGrid">
+        <div class="heroText">
+          <div class="kicker"><span class="kdot"></span> Servicio técnico para particulares y empresas</div>
 
-        <p class="heroText">
-          Informática, redes WiFi, cámaras de seguridad, alarmas y soporte técnico especializado.
-          Atención en <b>Gran Mendoza</b> y alrededores.
-        </p>
+          <h2>
+            Reparación y soporte <span class="accent">PRO</span><br>
+            en <span class="accent">Gran Mendoza</span>
+          </h2>
 
-        <div class="pill">
-          📍 <small>Zona:</small> <b>Gran Mendoza</b> <small>·</small> ⚡ <small>Respuesta rápida</small>
-        </div>
-      </div>
+          <p>
+            PC y notebooks, redes WiFi, impresoras y cámaras de seguridad.
+            Atención rápida, diagnósticos claros y soluciones reales.
+          </p>
 
-      <div class="sideCard">
-        <div class="qrBox">
-          <div class="qrTop">
-            <div>
-              <h3>Escaneá y escribinos</h3>
-              <p>WhatsApp directo para consultas y presupuestos.</p>
-            </div>
-          </div>
-
-          <!-- QR (usamos un generador online por URL) -->
-          <div class="qr">
-            <img
-              alt="QR WhatsApp Boomerang TI"
-              src="https://api.qrserver.com/v1/create-qr-code/?size=450x450&data=https://wa.me/5492616998820"
-            />
+          <div class="heroBadges">
+            <div class="badge"><span class="spark"></span> PC & Notebooks</div>
+            <div class="badge"><span class="spark"></span> Redes WiFi</div>
+            <div class="badge"><span class="spark"></span> Impresoras</div>
+            <div class="badge"><span class="spark"></span> Cámaras de Seguridad</div>
           </div>
         </div>
-      </div>
-    </div>
 
-    <section>
-      <div class="grid">
-
-        <div class="card">
-          <h3><span class="icon">💻</span> Informática y Tecnologías</h3>
-          <ul>
-            <li>Reparación de PC y notebooks</li>
-            <li>Optimización y puesta a punto</li>
-            <li>Instalación de Windows y programas</li>
-            <li>Backups y recuperación de datos</li>
-            <li>Mantenimiento preventivo</li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <h3><span class="icon">📶</span> WiFi y Redes</h3>
-          <ul>
-            <li>Instalación de WiFi y routers</li>
-            <li>Mejoras para varias habitaciones</li>
-            <li>Cableado estructurado</li>
-            <li>Configuración de repetidores / mesh</li>
-            <li>Estabilidad y señal optimizada</li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <h3><span class="icon">📷</span> Cámaras y Alarmas</h3>
-          <ul>
-            <li>Instalación de cámaras (DVR / NVR / WiFi)</li>
-            <li>Acceso remoto desde el celular</li>
-            <li>Instalación prolija y profesional</li>
-            <li>Alarmas y sensores</li>
-            <li>Asesoramiento según tu casa o comercio</li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <h3><span class="icon">🏥</span> Equipamiento Médico</h3>
-          <ul>
-            <li>Diagnóstico y reparación técnica</li>
-            <li>Mantenimiento preventivo</li>
-            <li>Soporte para clínicas y consultorios</li>
-            <li>Soluciones confiables</li>
-            <li>Atención profesional</li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <h3><span class="icon">🏢</span> Imagen Empresarial</h3>
-          <ul>
-            <li>Diseño de identidad y branding</li>
-            <li>Creación de correos corporativos</li>
-            <li>Configuración en PC y celular</li>
-            <li>Firma profesional y presencia digital</li>
-            <li>Asesoramiento completo</li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <h3><span class="icon">🤝</span> Atención</h3>
-          <ul>
-            <li>Empresas</li>
-            <li>Comercios</li>
-            <li>Particulares</li>
-            <li>Casas y departamentos</li>
-            <li>Gran Mendoza y alrededores</li>
-          </ul>
-        </div>
-
+        <div class="heroImg" role="img" aria-label="Imagen principal tecnológica"></div>
       </div>
     </section>
 
+    <!-- SERVICIOS -->
+    <section class="section">
+      <div class="card">
+        <div class="cardPad">
+          <h3>Servicios principales</h3>
+
+          <div class="list">
+            <div class="item">
+              <div class="ico">💻</div>
+              <div>
+                <b>PC y Notebooks</b>
+                <span>Formateos, optimización, upgrades, Windows, drivers, SSD y RAM.</span>
+              </div>
+            </div>
+
+            <div class="item">
+              <div class="ico">📶</div>
+              <div>
+                <b>WiFi y Redes</b>
+                <span>Mejora de señal, configuración de routers, repetidores, cableado y red estable.</span>
+              </div>
+            </div>
+
+            <div class="item">
+              <div class="ico">🖨️</div>
+              <div>
+                <b>Impresoras</b>
+                <span>Instalación, configuración, errores, red compartida y soporte.</span>
+              </div>
+            </div>
+
+            <div class="item">
+              <div class="ico">📷</div>
+              <div>
+                <b>Cámaras de Seguridad</b>
+                <span>Instalación, mantenimiento, DVR/NVR, acceso remoto y configuración.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card imgCard" role="img" aria-label="Imagen secundaria de tecnología"></div>
+    </section>
+
+    <!-- FOOTER -->
     <footer>
-      <h2>Impulsamos tu <span>Negocio</span></h2>
-      <p>
-        Servicio técnico serio, rápido y prolijo. Si querés que tu PC ande bien, que tu WiFi llegue a todos lados
-        o instalar cámaras con acceso desde el celular, escribinos.
-      </p>
-      <p style="margin-top:12px;">
-        <b>WhatsApp:</b> +54 9 261 699 8820 ·
-        <b>Email:</b> boomerang.spa@gmail.com
-      </p>
+      <div class="contact">
+        <a class="pill" href="https://wa.me/542616998820" target="_blank" rel="noopener">💬 WhatsApp: 261 699 8820</a>
+        <a class="pill" href="tel:+542616998820">📞 Llamadas</a>
+        <a class="pill" href="mailto:boomerang.spa@gmail.com">✉️ Email</a>
+      </div>
+
+      <div class="mini">
+        Boomerang TI • Soluciones Tecnológicas • Gran Mendoza
+      </div>
     </footer>
 
   </div>
-
-  <!-- Botón flotante -->
-  <a class="waFloat" href="https://wa.me/5492616998820?text=Hola%20Boomerang%20TI%2C%20quiero%20hacer%20una%20consulta." target="_blank" rel="noopener">
-    💬 WhatsApp
-  </a>
-
 </body>
 </html>
