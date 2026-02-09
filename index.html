@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Boomerang TI - Soluciones Tecnológicas</title>
 
-  <!-- Tipografía similar a la del flyer (estilo pro, moderna) -->
+  <!-- Tipografía -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
@@ -30,6 +30,7 @@
 
     *{ box-sizing:border-box; }
     html,body{ height:100%; }
+
     body{
       margin:0;
       font-family:"Montserrat", system-ui, -apple-system, Segoe UI, Roboto, Arial;
@@ -42,7 +43,7 @@
       overflow-x:hidden;
     }
 
-    /* Fondo tipo "space tech" con puntitos */
+    /* Fondo tipo space tech */
     body:before{
       content:"";
       position:fixed;
@@ -68,7 +69,7 @@
       z-index:2;
     }
 
-    /* Header */
+    /* HEADER */
     header{
       display:flex;
       align-items:center;
@@ -89,31 +90,15 @@
       min-width: 260px;
     }
 
-    .logo{
+    /* LOGO REAL */
+    .logoImg{
       width:54px;
       height:54px;
       border-radius:16px;
-      display:grid;
-      place-items:center;
-      background:
-        radial-gradient(circle at 30% 30%, rgba(255,179,90,.9), rgba(255,122,24,.9)),
-        linear-gradient(135deg, rgba(27,92,255,.55), rgba(0,0,0,.2));
-      box-shadow: 0 18px 40px rgba(255,122,24,.18);
+      object-fit:cover;
       border:1px solid rgba(255,255,255,.10);
-      overflow:hidden;
-      position:relative;
-    }
-
-    /* mini "boomerang" abstracto */
-    .logo:before{
-      content:"";
-      position:absolute;
-      width:34px;
-      height:34px;
-      border-radius: 12px 30px 12px 30px;
-      transform: rotate(22deg);
-      background: linear-gradient(135deg, rgba(255,255,255,.85), rgba(255,255,255,.10));
-      opacity:.25;
+      box-shadow: 0 18px 40px rgba(255,122,24,.18);
+      background: rgba(255,255,255,.05);
     }
 
     .brand h1{
@@ -122,7 +107,6 @@
       line-height:1;
       letter-spacing:.2px;
       font-weight:800;
-      text-transform: none;
     }
 
     .brand h1 span{
@@ -305,7 +289,6 @@
       filter: saturate(1.05) contrast(1.05);
     }
 
-    /* Fallback si no suben imagen */
     .heroImg:after{
       content:"";
       position:absolute;
@@ -408,7 +391,7 @@
       pointer-events:none;
     }
 
-    /* Footer contacto */
+    /* Footer */
     footer{
       margin-top:18px;
       padding:18px 20px;
@@ -472,7 +455,7 @@
     <!-- HEADER -->
     <header>
       <div class="brand">
-        <div class="logo" aria-hidden="true"></div>
+        <img src="logo.png" class="logoImg" alt="Boomerang TI Logo">
         <div>
           <h1>Boomerang <span>TI</span></h1>
           <div class="tag">SOLUCIONES TECNOLÓGICAS</div>
